@@ -18,5 +18,6 @@ public class UserDTO {
     private Integer age;
     private String gender;
     private String likedCategories;
+    private String category;
 
 }

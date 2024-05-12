@@ -73,7 +73,7 @@ function processBid(bidId, listingId, bidPrice, listingName) {
     const encodedListingName = encodeURIComponent(listingName);
 
     // Construct the payment page URL with query parameters
-    const paymentUrl = `../HTML/paymentgateway.html?bidId=${bidId}&listingId=${listingId}&listingName=${encodedListingName}&bidPrice=${bidPrice}`;
+    const paymentUrl = `../../HTML/User/paymentgateway.html?bidId=${bidId}&listingId=${listingId}&listingName=${encodedListingName}&bidPrice=${bidPrice}`;
 
     // Navigate to the payment page
     window.location.href = paymentUrl;
@@ -89,21 +89,20 @@ $(document).ready(function() {
     fetchAndDisplayBids(userId);
 });
 
-function navigateToBidPaymentsPage() {
+function navigateToBidPayments() {
     // Define the URL of the bid payments page
-    const bidPaymentsPageUrl = "../HTML/paymenthistory.html"; // Update with the actual URL
+    const bidPaymentsPageUrl = "../HTML/paidhistory.html"; // Update with the actual URL
   
     // Navigate to the bid payments page
     window.location.href = bidPaymentsPageUrl;
   }
   
   
-  function navigateToBidPaymentsUserPage() {
+  function navigateToBidPaymentsUser() {
     // Define the URL of the bid payments page
     console.log("User clicked");
-    const bidPaymentsPageUrl = "../../HTML/User/paymenthistory.html"; // Update with the actual URL
+    const bidPaymentsPageUrl = "../../HTML/User/paidhistory.html"; // Update with the actual URL
   
     // Navigate to the bid payments page
     window.location.href = bidPaymentsPageUrl;
   }
-  

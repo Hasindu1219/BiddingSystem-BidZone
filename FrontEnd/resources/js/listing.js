@@ -1,7 +1,3 @@
-// Call the function with the listingId from the URL
-// const urlParams = new URLSearchParams(window.location.search);
-// localStorage.setItem('listId', urlParams.get('listingId'));
-
 const listingId = parseInt(localStorage.getItem('listingId'));
 const userId = parseInt(localStorage.getItem('userid'));
 
@@ -11,7 +7,6 @@ console.log(typeof(userId)+" userId: "+userId);
 var listedPrice, highestBid;
 
 fetchListingData(listingId);
-fetchBidData(listingId);
 
 async function fetchListingData(listingId) {
     try {
@@ -35,6 +30,9 @@ async function fetchListingData(listingId) {
 
         // Passing time-remain element to updateTimeRemaining function
         updateTimeRemaining(listing.content.ending, document.getElementById('time-remain'));
+
+        // Fetch bid data after listing data is fetched
+        await fetchBidData(listingId);
     } catch (error) {
         console.error('Error fetching listing data:', error);
     }
@@ -71,6 +69,8 @@ async function fetchBidData(listId) {
         document.getElementById('your-bid').setAttribute('placeholder', parseInt(highestBid) + 1);
         console.log(typeof(highestBid) + " Highest Price: " + highestBid);
 
+        // After updating highest bid, call placeBid
+        placeBid();
     } catch (error) {
         console.error("Error fetching bids:", error);
     }
@@ -121,7 +121,7 @@ async function placeBid() {
 }
 
 // Event listener for bid submission
-// document.getElementById('btn-place-bid').addEventListener('click', function () { placeBid() });
+//document.getElementById('btn-place-bid').addEventListener('click', function () { placeBid() });
 
 function formatDate(dateString) {
     const date = new Date(dateString);

@@ -22,11 +22,15 @@ public class BidController {
     @Autowired
     private BidService bidService;
 
-    @Autowired
-    private ResponseDTO responseDTO;
+    private ResponseDTO createResponseDTO() {
+        return new ResponseDTO();
+    }
 
     @GetMapping(value = "/view")
     public ResponseEntity getAllBid() {
+
+        ResponseDTO responseDTO = createResponseDTO();
+
         List<BidDTO> bidDTOList = bidService.findAll();
         try {
 
@@ -53,6 +57,8 @@ public class BidController {
 
     @GetMapping("/search/{bidId}")
     public ResponseEntity searchBidByID(@PathVariable int bidId){
+        ResponseDTO responseDTO = createResponseDTO();
+
         try{
             BidDTO bidDTO= bidService.searchBidById(bidId);
 
@@ -79,6 +85,8 @@ public class BidController {
 
     @GetMapping("/search-by-user-id/{userId}")
     public ResponseEntity searchBidByUserID(@PathVariable int userId){
+        ResponseDTO responseDTO = createResponseDTO();
+
         try{
             List<BidDTO> bidDTOList= bidService.searchBidByUserId(userId);
 
@@ -105,6 +113,8 @@ public class BidController {
 
     @GetMapping("/search-by-list-id/{listId}")
     public ResponseEntity searchBidByListingId(@PathVariable int listId){
+        ResponseDTO responseDTO = createResponseDTO();
+
         try{
             List<BidDTO> bidDTOList= bidService.searchBidByListingId(listId);
 
@@ -131,6 +141,8 @@ public class BidController {
 
     @PostMapping("/add")
     public ResponseEntity addBid(@RequestBody BidDTO bidDTO){
+        ResponseDTO responseDTO = createResponseDTO();
+
         try{
             String response = bidService.addNewBid(bidDTO);
 
@@ -159,6 +171,8 @@ public class BidController {
 
     @PutMapping("/update")
     public ResponseEntity updateBid(@RequestBody BidDTO bidDTO){
+        ResponseDTO responseDTO = createResponseDTO();
+
         try{
             String response = bidService.updateBid(bidDTO);
 
@@ -187,6 +201,7 @@ public class BidController {
 
     @DeleteMapping("/delete/{bidId}")
     public ResponseEntity deleteBidByID(@PathVariable int bidId){
+        ResponseDTO responseDTO = createResponseDTO();
 
         try{
             String response = bidService.deleteBidByID(bidId);
@@ -217,6 +232,7 @@ public class BidController {
     public ResponseEntity getHighestBidsForUserAndEndingBeforeDate(
             @PathVariable int userId,
             @PathVariable LocalDateTime givenDate) {
+        ResponseDTO responseDTO = createResponseDTO();
 
         try{
             List<BidListingDTO> bidListAccordingtoUser = bidService.findHighestBidsForUserAndEndingBeforeDate(userId, givenDate);
@@ -246,6 +262,7 @@ public class BidController {
     @GetMapping("/aaaaaa/{userId}")
     public ResponseEntity findHighestBidsForUserAndEndingBeforeDate1111(
             @PathVariable int userId) {
+        ResponseDTO responseDTO = createResponseDTO();
 
         try{
             List<BidListingDTO> bidListAccordingtoUser = bidService.findHighestBidsForUserAndEndingBeforeDate1111(userId);

@@ -8,6 +8,7 @@ $(document).ready(function() {
       $(this).serializeArray().forEach(function(item) {
         formData[item.name] = item.value;
       });
+      formData["category"] = "user";
   
       // Make POST request to the API
       $.ajax({

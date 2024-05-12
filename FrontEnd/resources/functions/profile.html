@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidding System</title>
+</head>
+<body>
+    <!-- Container for the bidding system -->
+    <div class="container">
+        <!-- Main heading -->
+        <h1>Bidding System</h1>
+        
+        <!-- Subheading for user profile -->
+        <h2>User Profile</h2>
+        
+        <!-- User information -->
+        <p><strong>Username:</strong> JohnDoe</p>
+        <p><strong>Email:</strong> johndoe@example.com</p>
+        <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <!-- Form for placing a bid -->
+        <form action="/submit_bid" method="post">
+            <!-- Label for bid amount input -->
+            <label for="bid_amount">Enter Your Bid Amount:</label><br>
+            
+            <!-- Input field for bid amount -->
+            <input type="number" id="bid_amount" name="bid_amount" min="0" step="0.01" required><br>
+            
+            <!-- Submit button for placing bid -->
+            <input type="submit" value="Place Bid">
+        </form>
+    </div>
+</body>
+</html>

@@ -48,7 +48,7 @@ public class BidService {
         return modelMapper.map(bids,new TypeToken<List<BidDTO>>(){}.getType());
     }
 
-    public String addNewBid(BidDTO bidDTO) {
+    public synchronized String addNewBid(BidDTO bidDTO) {
         if(bidRepository.existsById(bidDTO.getId())){
             return VarList.RSP_DUPLICATED;
         }else{

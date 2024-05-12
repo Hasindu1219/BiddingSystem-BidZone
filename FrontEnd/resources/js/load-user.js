@@ -72,6 +72,7 @@ $(document).ready(function () {
       age: $("#age").val(),
       gender: $("input[name='gender']:checked").val(),
       likedCategories: $("select[name='likedCategory']").val(),
+      category:"user"
     };
     console.log(userData);
 
@@ -118,6 +119,7 @@ $(document).ready(function () {
       age: $("#ageEdit").val(),
       gender: $("input[name='gender']:checked").val(),
       likedCategories: $("select[name='likedCategoryEdit']").val(),
+      category:"user",
     };
     console.log(userData);
 

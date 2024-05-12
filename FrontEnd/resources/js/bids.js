@@ -71,3 +71,13 @@ function navigateToBidPaymentsPage() {
   // Navigate to the bid payments page
   window.location.href = bidPaymentsPageUrl;
 }
+
+
+function navigateToBidPaymentsUserPage() {
+  // Define the URL of the bid payments page
+  console.log("User clicked");
+  const bidPaymentsPageUrl = "../../HTML/User/bidpayments.html"; // Update with the actual URL
+
+  // Navigate to the bid payments page
+  window.location.href = bidPaymentsPageUrl;
+}

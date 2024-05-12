@@ -14,7 +14,7 @@
   <script src="../resources/js/home.js"></script>
   <script src="../resources/js/header.js"></script>
   <script src="../resources/js/logout.js"></script>
-  <script src="../resources/js/bids.js"></script>
+  <script src="../resources/js/paymenthistory.js"></script>
 </head>
 <body>
 
@@ -33,36 +33,33 @@
 <section class="jumbotron text-center custom-section">
   <div class="container">
     <h1>
-      My Bids
-      <button type="button" class="btn btn-primary addButton" onclick="navigateToBidPaymentsPage()" >
-        Bid Payments
-      </button>
+       History of Payments
     </h1>
   </div>
 </section>
 
-<!-- <section class="jumbotron text-center custom-section">
+<section class="jumbotron text-center custom-section">
   <div class="container">
-    <input type="text" class="searchInput" placeholder="Search"/>
   </div>
-</section> -->
+</section>
 
 
 <div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Bid Id</th>
-        <th>Listning Id</th>
-        <th>Date</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody id="bidTableBody">
-    </tbody>
-  </table>
-</div>
-
-
+    <table id="paymentTable">
+      <thead>
+        <tr>
+          <th>Payment Id</th>
+          <th>Listing Id</th>
+          <th>Bid Name</th>
+          <th>Paid Time</th>
+          <th>Payment Type</th>
+          <th>Price</th>  
+        </tr>
+      </thead>
+      <tbody id="paymentBody">
+      </tbody>
+    </table>
+  </div>
+  
 </body>
 </html>

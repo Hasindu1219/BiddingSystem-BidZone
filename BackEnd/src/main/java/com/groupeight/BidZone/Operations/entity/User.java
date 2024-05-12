@@ -38,4 +38,7 @@ public class User {
 
     @Column
     private String likedCategories;
+
+    @Column
+    private String category;
 }

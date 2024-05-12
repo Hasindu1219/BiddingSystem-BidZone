@@ -22,11 +22,14 @@ public class ListingController {
     @Autowired
     private ListingService listingService;
 
-    @Autowired
-    private ResponseDTO responseDTO;
+    private ResponseDTO createResponseDTO() {
+        return new ResponseDTO();
+    }
 
     @GetMapping(value = "/view")
     public ResponseEntity getAllListing() {
+        ResponseDTO responseDTO = createResponseDTO();
+
         List<ListingDTO> listingDTOList = listingService.findAllListing();
         try {
 
@@ -53,6 +56,7 @@ public class ListingController {
 
     @GetMapping(value = "/search-by-id/{listingId}")
     public ResponseEntity searchListingByID(@PathVariable int listingId){
+        ResponseDTO responseDTO = createResponseDTO();
         try{
             ListingDTO listingDTO= listingService.searchListingById(listingId);
 
@@ -79,6 +83,7 @@ public class ListingController {
 
     @GetMapping(value = "/search-by-date-except-userid/{date}/{userId}")
     public ResponseEntity searchListingByDateExceptUserId(@PathVariable LocalDateTime date,@PathVariable int userId){
+        ResponseDTO responseDTO = createResponseDTO();
         try{
             List<ListingDTO> listingDTOList = listingService.findListingByDateExceptUserId(date,userId);
 
@@ -105,6 +110,7 @@ public class ListingController {
 
     @GetMapping(value = "/search-by-userid/{userId}")
     public ResponseEntity findListingByUserId(@PathVariable int userId){
+        ResponseDTO responseDTO = createResponseDTO();
         try{
             List<ListingDTO> listingDTOList = listingService.findListingByUserId(userId);
 
@@ -131,6 +137,7 @@ public class ListingController {
 
     @PutMapping(value = "/update")
     public ResponseEntity updateListing(@RequestBody ListingDTO listingDTO){
+        ResponseDTO responseDTO = createResponseDTO();
         try{
             String response = listingService.updateListing(listingDTO);
 
@@ -161,6 +168,7 @@ public class ListingController {
     public ResponseEntity addListing(@RequestPart("listingDTO") ListingDTO listingDTO,
                                      @RequestPart(value = "image") MultipartFile image,
                                      @RequestParam(value = "username") String username) {
+        ResponseDTO responseDTO = createResponseDTO();
 
         try {
             String response = listingService.addNewListing(listingDTO, image,username);
@@ -189,7 +197,7 @@ public class ListingController {
 
     @DeleteMapping(value = "/delete/{listingId}")
     public ResponseEntity deleteListingByID(@PathVariable int listingId){
-
+        ResponseDTO responseDTO = createResponseDTO();
         try{
             String response = listingService.deleteListingByID(listingId);
             if (response.equals(VarList.RSP_SUCCESS)){

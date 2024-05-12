@@ -18,9 +18,17 @@ function login() {
                 localStorage.setItem('userid', response.content.id);
                 localStorage.setItem('name', response.content.name);
 
-
-                // If user is found, redirect or do home page
-               window.location.replace('../HTML/home.html');
+                if(response.content.category === "admin")
+                {
+                    console.log("Admin");
+                    window.location.replace('../HTML/home.html');
+                }
+                else if(response.content.category === "user")
+                {
+                    console.log("User");
+                    window.location.replace('../HTML/User/Userhome.html');
+                }
+       
             } else {
                 // If user is not found, show error message
                 console.log(response);
