@@ -17,7 +17,7 @@ import java.util.Base64;
 public class CardDetailsService {
 
     private static final String AES = "AES";
-    private static final String FILE_PATH = "E:\\Advance Java Project\\BiddingSystem-BidZone\\BackEnd\\encrypted_card_details.scr";
+    private static final String FILE_PATH = "C:\\Users\\SLYM\\Documents\\GitHub\\BiddingSystem-BidZone\\BackEndencrypted_card_details.scr";
 
     public void storeCardDetails(Card cardDetails) throws Exception {
         // Generate AES secret key
